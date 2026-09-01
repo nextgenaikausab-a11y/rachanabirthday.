@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
-  <title>Happy Birthday Rach!</title>
+  <title>Happy Birthday Rachana!</title>
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=Plus+Jakarta+Sans:wght@300;400;500&display=swap" rel="stylesheet">
   <style>
     * {
@@ -32,7 +32,7 @@
       display: block;
     }
 
-    /* Overlay card container */
+    /* Overlay container */
     .overlay-container {
       position: absolute;
       top: 0;
@@ -41,49 +41,49 @@
       height: 100vh;
       z-index: 2;
       display: flex;
-      flex-direction: column;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
-      padding: 40px 20px;
-      pointer-events: none; /* Allows interacting with canvas beneath */
+      padding: 20px;
+      pointer-events: none;
     }
 
-    /* Glassmorphism greeting card */
+    /* Glassmorphism card - Expanded for longer message */
     .card-content {
       pointer-events: auto;
-      background: rgba(255, 255, 255, 0.07);
-      backdrop-filter: blur(12px);
-      -webkit-backdrop-filter: blur(12px);
-      border: 1px solid rgba(255, 255, 255, 0.15);
-      border-radius: 20px;
-      padding: 24px 32px;
-      max-width: 90%;
+      background: rgba(255, 255, 255, 0.08);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border: 1px solid rgba(255, 255, 255, 0.18);
+      border-radius: 24px;
+      padding: 36px 40px;
+      width: 90%;
+      max-width: 680px;
       text-align: center;
-      box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.37);
-      margin-top: 20px;
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
     }
 
     h1 {
       font-family: 'Cormorant Garamond', serif;
-      font-size: 2.2rem;
+      font-size: 2.5rem;
       font-weight: 600;
       color: #ffb7d5;
-      margin-bottom: 8px;
+      margin-bottom: 16px;
       letter-spacing: 1px;
     }
 
     .message {
-      font-size: 1.05rem;
-      line-height: 1.6;
+      font-size: 1.15rem;
+      line-height: 1.8;
       color: #f3e8ee;
-      min-height: 50px;
+      min-height: 120px;
+      white-space: pre-wrap;
     }
 
     /* Typewriter Cursor */
     .cursor {
       display: inline-block;
       width: 2px;
-      height: 1.1em;
+      height: 1.2em;
       background-color: #ffb7d5;
       margin-left: 2px;
       animation: blink 0.8s infinite;
@@ -93,6 +93,18 @@
     @keyframes blink {
       0%, 100% { opacity: 1; }
       50% { opacity: 0; }
+    }
+
+    @media (max-width: 600px) {
+      .card-content {
+        padding: 24px 20px;
+      }
+      h1 {
+        font-size: 2rem;
+      }
+      .message {
+        font-size: 1rem;
+      }
     }
   </style>
 </head>
@@ -158,7 +170,7 @@
       }
     }
 
-    for (let i = 0; i < 35; i++) {
+    for (let i = 0; i < 40; i++) {
       hearts.push(new Heart());
     }
 
@@ -172,14 +184,15 @@
     }
     animate();
 
-    // Typewriter Text Effect
-    const text = "Wishing you a day filled with joy, laughter, and endless happiness. You deserve the world!";
+    // Longer Typewriter Text Message
+    const text = "Wishing you a day filled with endless laughter, genuine happiness, and all the love you so truly deserve. May this new year bring you remarkable adventures, continuous success, and memories you'll treasure forever. Thank you for being such an extraordinary presence. Happy Birthday!";
+    
     let index = 0;
     function typeWriter() {
       if (index < text.length) {
         document.getElementById('typewriter').innerHTML += text.charAt(index);
         index++;
-        setTimeout(typeWriter, 50);
+        setTimeout(typeWriter, 40);
       }
     }
     window.addEventListener('load', typeWriter);
